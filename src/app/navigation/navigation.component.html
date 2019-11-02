@@ -1,1 +1,18 @@
-<p>navigation works!</p>
+<mat-toolbar color="primary">
+    <div fxLayout>
+      <a routerLink="/">
+        PR Sheet
+      </a>
+    </div>
+    <div fxFlex fxLayout fxLayoutAlign="flex-end" fxLayoutGap="10px">
+        <button mat-button routerLink="/dashboard">Dashboard</button>
+        <button mat-button [matMenuTriggerFor]="menu">Lifts</button>
+        <mat-menu #menu="matMenu">
+            <button 
+                mat-menu-item 
+                *ngFor="let lift of lifts" [routerLink]="'/'+lift">
+                {{lift}}
+            </button>
+        </mat-menu>
+    </div>
+  </mat-toolbar>
