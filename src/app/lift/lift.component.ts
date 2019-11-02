@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lift.component.css']
 })
 export class LiftComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {

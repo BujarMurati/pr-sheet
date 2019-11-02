@@ -10,11 +10,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {path: '', component: WelcomeComponent},
-  {path: ':lift', component: LiftComponent},
-  {path: ':lift/best', component: BestComponent},
-  {path: ':lift/history', component: HistoryComponent},
-  {path: ':lift/track', component: TrackComponent},
   {path: 'dashboard', component: DashboardComponent},
+  {path: 'prs/:lift', component: LiftComponent},
+  {path: 'prs/:lift/best', component: BestComponent},
+  {path: 'prs/:lift/history', component: HistoryComponent},
+  {path: 'prs/:lift/track', component: TrackComponent},
+  
 ];
 
 @NgModule({
