@@ -1,1 +1,13 @@
-<p>welcome works!</p>
+<div class="welcome" fxFlex fxLayout="column" fxLayoutAlign="center center">
+    <h1>PR Sheet</h1>
+    <h2>Track your personal records!</h2>
+    <button
+        mat-raised-button
+        color="primary"
+        *ngIf="newVisitor"
+        routerLink="/new"
+        > 
+        Get started
+    </button>
+    <app-dashboard *ngIf="!newVisitor"></app-dashboard>
+</div>
