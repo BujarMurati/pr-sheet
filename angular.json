@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pr-pirate": {
+    "pr-sheet": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/pr-pirate",
+            "outputPath": "dist/pr-sheet",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -64,18 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "pr-pirate:build"
+            "browserTarget": "pr-sheet:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "pr-pirate:build:production"
+              "browserTarget": "pr-sheet:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "pr-pirate:build"
+            "browserTarget": "pr-sheet:build"
           }
         },
         "test": {
@@ -113,16 +113,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "pr-pirate:serve"
+            "devServerTarget": "pr-sheet:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "pr-pirate:serve:production"
+              "devServerTarget": "pr-sheet:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "pr-pirate"
+  "defaultProject": "pr-sheet"
 }
