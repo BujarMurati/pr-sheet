@@ -1,6 +1,7 @@
-<div class="welcome" fxFlex fxLayout="column" fxLayoutAlign="center center">
+<div class="welcome mat-elevation-z10" fxFlex fxLayout="column" fxLayoutAlign="center center">
     <h1>PR Sheet</h1>
     <h2>Track your personal records!</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras semper nunc non diam pellentesque, et consequat nunc finibus. Nam rhoncus bibendum enim, ut tristique elit tincidunt laoreet. Sed dignissim auctor orci id eleifend. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer scelerisque dictum tempor. Vestibulum nibh nunc, ultricies ut est vitae, hendrerit semper mauris. Phasellus ut nunc ac velit consequat vehicula. Aliquam ligula sem, dignissim in eleifend eget, imperdiet nec sem. In sed eros placerat quam sagittis hendrerit. Donec id sem felis. In malesuada felis et risus ultricies, vitae euismod odio sodales. Sed efficitur dolor tincidunt fringilla mollis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     <button
         mat-raised-button
         color="primary"
@@ -9,5 +10,7 @@
         > 
         Get started
     </button>
+    <br>
+    <mat-divider [inset]="true"></mat-divider>
     <app-dashboard *ngIf="!newVisitor"></app-dashboard>
 </div>
