@@ -6,3 +6,8 @@ a {
 a:hover {
     color: #c2185b;
 }
+
+.dashboard {
+    max-width: 800px; 
+    margin: auto;
+}
