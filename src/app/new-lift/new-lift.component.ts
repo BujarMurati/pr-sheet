@@ -22,7 +22,7 @@ export class NewLiftComponent implements OnInit {
   onSubmit(form: NgForm){
     let pr = form.value;
     pr.e1RM = PR.calculateE1RM(pr.reps, pr.weight);
-    this.prService.createPR(pr);
+    this.prService.create(pr);
     this.router.navigate(['/prs/'+pr.lift])
   }
 

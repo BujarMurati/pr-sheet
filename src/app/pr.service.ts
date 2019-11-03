@@ -15,13 +15,13 @@ export class PrService {
   db: DB;
 
   constructor() { 
-    
+    this.init();
   }
 
-  ngOnInit(){
+  init(){
     this.db = new DB();
   }
-  create(pr: PR) {
+  create(pr: PR): void {
     this.db.prs.add(pr);
   }
 }
