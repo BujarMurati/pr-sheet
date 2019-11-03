@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { PR, PRCollection } from './pr';
 import { Observable, of } from 'rxjs';
+import { CrudService } from './crud.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class PrService {
 
   prs: PR[];
 
-  constructor() { }
+  constructor(private crud: CrudService) { }
 
   ngOnInit(){
 
@@ -23,5 +24,9 @@ export class PrService {
 
   getPRs(filterBy: Partial<PR> = {}): Observable<PR[]> {
     return of(this.prs.filter(pr => Object.keys(filterBy).every(criterion => pr[criterion] === filterBy[criterion])));
+  }
+
+  createPR(pr: PR) {
+    this.crud.create(pr);
   }
 }

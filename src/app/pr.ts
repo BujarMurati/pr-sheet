@@ -5,6 +5,7 @@ export class PR {
     e1RM: number; //estimated 1 rep max
     date: Date;
 
+
     static calculateE1RM(reps: number, weight: number): number {
         if (reps === 1){
             return weight;

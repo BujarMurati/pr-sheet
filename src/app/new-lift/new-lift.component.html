@@ -40,13 +40,17 @@
         </mat-slider>
         <mat-form-field>
             <input 
-                matInput 
+                matInput
+                [(ngModel)]="date"
+                name="date"
                 [matDatepicker]="picker" 
-                [max] = "today"
-                [value] = "today"
+                [max]="today"
                 placeholder="Day of the PR">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+            <mat-datepicker 
+                [startAt]="today"
+                #picker>
+            </mat-datepicker>
         </mat-form-field>
         
         <button 
