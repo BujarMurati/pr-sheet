@@ -3,7 +3,8 @@
         fxLayout="column" 
         fxLayoutAlign="center stretch" 
         fxLayoutGap="10px"
-        #f="ngForm" >
+        #f="ngForm" 
+        (submit)="onSubmit(f)">
         <h2>Enter a PR for a new Lift</h2>
         <mat-form-field>
             <input 

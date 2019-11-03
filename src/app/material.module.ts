@@ -10,6 +10,7 @@ import {
     MatSliderModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSnackBarModule,
 } from '@angular/material';
 import { NgModule } from '@angular/core';
 
@@ -26,6 +27,7 @@ import { NgModule } from '@angular/core';
         MatSliderModule,
         MatDatepickerModule,
         MatNativeDateModule,
+        MatSnackBarModule,
     ],
     exports:[
         MatButtonModule,
@@ -39,6 +41,7 @@ import { NgModule } from '@angular/core';
         MatSliderModule,
         MatDatepickerModule,
         MatNativeDateModule,
+        MatSnackBarModule,
     ],
 })
 export class MaterialModule{
