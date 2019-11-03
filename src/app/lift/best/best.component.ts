@@ -22,6 +22,15 @@ export class BestComponent implements OnInit {
     this.prService.read({lift:this.lift})
       .then(prs => {
         this.bestPRs = (new PRCollection(prs)).getBestPRsBy('reps');
+        this.bestPRs.sort(function(a, b){
+          if (a.reps > b.reps){
+            return 1;
+          }else if (a.reps === b.reps){
+            return 0;
+          }else{
+            return -1;
+          }
+        });
         
       })
       .catch(err => console.error(err));
