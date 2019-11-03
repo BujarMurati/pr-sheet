@@ -16,6 +16,17 @@ export class PrService {
   init(){
     this.db = new DB();
   }
+
+  isEmpty(): Promise<boolean>{
+    return this.db.prs.count(c=>{
+      return c===0;
+    });
+  }
+
+  uniqueLifts():Promise<any[]>{
+    return this.db.prs.where('lift').notEqual('').uniqueKeys();
+  }
+
   create(pr: PR): void {
     this.db.prs.add(pr);
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PrService } from '../pr.service';
 
 @Component({
   selector: 'app-navigation',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-  lifts = ['Squat', 'Bench Press', 'Deadlift'];
-  constructor() { }
+  lifts: any[];
+  constructor(
+    private prService: PrService,
+  ) { }
 
   ngOnInit() {
+    this.prService.uniqueLifts().then(lifts => this.lifts = lifts);
   }
 
 }
