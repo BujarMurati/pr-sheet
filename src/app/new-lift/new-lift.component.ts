@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-lift.component.css']
 })
 export class NewLiftComponent implements OnInit {
-
+  today: Date;
+  minReps = 1;
   constructor() { }
 
   ngOnInit() {
+    this.today = new Date();
   }
 
 }
