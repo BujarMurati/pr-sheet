@@ -16,8 +16,6 @@ import { HistoryComponent } from './lift/history/history.component';
 import { TrackComponent } from './lift/track/track.component';
 import { NewLiftComponent } from './new-lift/new-lift.component'
 
-import { CrudService } from './crud.service';
-
 
 @NgModule({
   declarations: [
@@ -39,7 +37,7 @@ import { CrudService } from './crud.service';
     FormsModule,
     FlexLayoutModule,
   ],
-  providers: [CrudService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
