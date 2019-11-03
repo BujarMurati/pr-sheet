@@ -21,31 +21,36 @@ export class PRCollection {
         this.prs = prs;
     }
 
-    getUniqueLifts(): string[]{
-        let lifts = [];
-        this.prs.forEach(pr => {
-          if (!lifts.includes(pr.lift)){
-            lifts.push(pr.lift)
-          }
-        });
-        return lifts;
+    getBestPRsBy(field: string):PR[]{
+      let bestPRs: PR[] = [];
+      this.getUniqueValuesBy(field).forEach(val => {
+        let filteredPRs = this.prs.filter(pr => pr[field] === val);
+        bestPRs.push(this.max(filteredPRs));
+      });
+      return bestPRs;
     }
-    getBestPRs():PR[]{
-        let bestPRs = [];
-        this.getUniqueLifts().forEach(lift => {
-          let liftPRs = this.prs.filter(pr => pr.lift === lift);
-          let max = 0;
-          let bestPR: PR;
-          for (let pr of liftPRs){
-            if (pr.e1RM > max){
-              max = pr.e1RM;
-              bestPR = pr;
-            }
-          }
-          bestPRs.push(bestPR);
-        });
-        return bestPRs;
-      }
+
+    getUniqueValuesBy(field: string): string[]{
+      let vals = [];
+      this.prs.forEach(pr=> {
+        if (!vals.includes(pr[field])){
+          vals.push(pr[field]);
+        }
+      });
+      return vals;
+    }
 
     
+
+  private max(prs: PR[]) {
+    let max = 0;
+    let maxPR: PR;
+    for (let pr of prs) {
+      if (pr.e1RM > max) {
+        max = pr.e1RM;
+        maxPR = pr;
+      }
+    }
+    return maxPR;
+  }
 }

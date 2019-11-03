@@ -1,11 +1,6 @@
 import { Injectable } from '@angular/core';
-import { PR, PRCollection } from './pr';
+import { PR } from './pr';
 import { DB } from './db';
-import { Observable, from} from 'rxjs';
-
-
-
-
 
 @Injectable({
   providedIn: 'root'
@@ -24,4 +19,15 @@ export class PrService {
   create(pr: PR): void {
     this.db.prs.add(pr);
   }
+
+  read(filterBy?: Partial<PR>): Promise<PR[]>{
+    if (filterBy){
+      return this.db.prs
+        .filter(pr => Object.keys(filterBy).every(criterion => pr[criterion] === filterBy[criterion]))
+        .toArray();
+    }
+    return this.db.prs.toArray();
+  }
+
+
 }
