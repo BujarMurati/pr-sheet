@@ -11,6 +11,7 @@ import {
     MatDatepickerModule,
     MatNativeDateModule,
     MatSnackBarModule,
+    MatTableModule,
 } from '@angular/material';
 import { NgModule } from '@angular/core';
 
@@ -28,6 +29,7 @@ import { NgModule } from '@angular/core';
         MatDatepickerModule,
         MatNativeDateModule,
         MatSnackBarModule,
+        MatTableModule,
     ],
     exports:[
         MatButtonModule,
@@ -42,6 +44,7 @@ import { NgModule } from '@angular/core';
         MatDatepickerModule,
         MatNativeDateModule,
         MatSnackBarModule,
+        MatTableModule,
     ],
 })
 export class MaterialModule{
