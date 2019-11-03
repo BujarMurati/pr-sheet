@@ -10,9 +10,14 @@
         <button mat-button [matMenuTriggerFor]="menu">Lifts</button>
         <mat-menu #menu="matMenu">
             <button 
-                mat-menu-item 
-                *ngFor="let lift of lifts" [routerLink]="'prs/'+lift">
-                {{lift}}
+              mat-menu-item 
+              [routerLink]="'/new'">
+              New
+            </button>
+            <button 
+              mat-menu-item 
+              *ngFor="let lift of lifts" [routerLink]="'prs/'+lift">
+              {{lift}}
             </button>
         </mat-menu>
     </div>
