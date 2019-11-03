@@ -3,7 +3,11 @@
 
     <ng-container matColumnDef="lift">
         <th mat-header-cell *matHeaderCellDef> Lift </th>
-        <td mat-cell *matCellDef="let pr"> {{pr.lift}} </td>
+        <td mat-cell *matCellDef="let pr"> 
+            <a [routerLink]="'/prs/'+pr.lift">
+                {{pr.lift}}
+            </a> 
+        </td>
     </ng-container>
 
     <ng-container matColumnDef="reps">
