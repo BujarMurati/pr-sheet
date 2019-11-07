@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-track',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./track.component.css']
 })
 export class TrackComponent implements OnInit {
+
+  @Input() lift: string;
 
   constructor() { }
 
