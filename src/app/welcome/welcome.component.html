@@ -1,16 +1,28 @@
 <div class="welcome mat-elevation-z10" fxFlex fxLayout="column" fxLayoutAlign="center center">
     <h1>PR Sheet</h1>
     <h2>Track your personal records!</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras semper nunc non diam pellentesque, et consequat nunc finibus. Nam rhoncus bibendum enim, ut tristique elit tincidunt laoreet. Sed dignissim auctor orci id eleifend. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer scelerisque dictum tempor. Vestibulum nibh nunc, ultricies ut est vitae, hendrerit semper mauris. Phasellus ut nunc ac velit consequat vehicula. Aliquam ligula sem, dignissim in eleifend eget, imperdiet nec sem. In sed eros placerat quam sagittis hendrerit. Donec id sem felis. In malesuada felis et risus ultricies, vitae euismod odio sodales. Sed efficitur dolor tincidunt fringilla mollis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    <button
+    <p>
+        Do you even track, bro? As a serious lifter, you should keep track of your lifting <em>bro-gress</em>. 
+        Not only will it motivate you to see those PRs increasing as you get stronger, it will also help you determine if your current program works.
+        If you are tired of dealing with spreadsheets, try this neat little web app to track your PRs.
+        All data is saved locally in your browser.
+    </p>
+    <div class="button-group" fxLayout fxLayoutGap="10px">
+        <button
+            mat-raised-button
+            color="primary"
+            routerLink="/new"
+            > 
+            {{newLiftMessage}}
+        </button>
+        <button
         mat-raised-button
         color="primary"
-        *ngIf="newVisitor"
-        routerLink="/new"
+        routerLink="/dashboard"
+        *ngIf="!empty"
         > 
-        Get started
+        Visit your Dashboard
     </button>
+    </div>
     <br>
-    <mat-divider [inset]="true"></mat-divider>
-    <app-dashboard *ngIf="!newVisitor"></app-dashboard>
 </div>
