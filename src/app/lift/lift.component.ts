@@ -27,7 +27,7 @@ export class LiftComponent implements OnInit {
   }
   
   setActiveTab(tab: Tabs): void{
-    this.activeTab = 0;
+    this.activeTab = tab;
     this.lift = this.lift;
   }
 
