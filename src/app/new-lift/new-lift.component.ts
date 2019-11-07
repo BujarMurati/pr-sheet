@@ -29,7 +29,6 @@ export class NewLiftComponent implements OnInit {
   ngOnInit() {
     this.today = new Date();
     this.date = this.today;
-    
   }
 
 }

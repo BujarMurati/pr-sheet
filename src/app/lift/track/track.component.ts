@@ -1,4 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { PrService } from 'src/app/pr.service';
+import { PR } from 'src/app/pr';
 
 @Component({
   selector: 'app-track',
@@ -7,11 +10,33 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TrackComponent implements OnInit {
 
-  @Input() lift: string;
+  @Input() 
+  set lift(lift: string){
+    this._lift = lift;
+  }
+  get name(): string {return this._lift}
 
-  constructor() { }
+  private _lift: string;
+
+  @Output() submitted = new EventEmitter();
+
+  date: Date;
+  today: Date;
+
+  constructor(
+    private prService: PrService,
+  ) { }
 
   ngOnInit() {
+    this.today = new Date();
+    this.date = this.today;
+  }
+  onSubmit(form: NgForm){
+    let pr = form.value;
+    pr.e1RM = PR.calculateE1RM(pr.reps, pr.weight);
+    pr.lift = this._lift;
+    this.prService.create(pr);
+    this.submitted.emit();
   }
 
 }
