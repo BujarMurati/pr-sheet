@@ -1,6 +1,14 @@
-<div fxLayout="column" fyLayoutAlign="center center" >
+<div 
+    style="max-width: 800px; margin: auto;"
+    fxLayout="column" 
+    fxLayoutAlign="center center" 
+    fxLayoutGap="10px">
     <h2>Your lifetime {{_lift}} PRs</h2>
-    <table mat-table [dataSource]="bestPRs" >
+    <table 
+        mat-table
+        fxFlexFill
+        style="overflow: hidden"
+        [dataSource]="bestPRs" >
             
         <ng-container matColumnDef="reps">
             <th mat-header-cell *matHeaderCellDef> Reps </th>
@@ -25,4 +33,11 @@
         <tr mat-header-row *matHeaderRowDef="['reps', 'weight', 'e1RM', 'date']"></tr>
         <tr mat-row *matRowDef="let row; columns: ['reps', 'weight', 'e1RM', 'date'];"></tr>
     </table>
+
+    <button
+    mat-raised-button
+    color="primary"
+    (click)="onOpenTrackForm()">
+    Enter a new PR
+</button>
 </div>

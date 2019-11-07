@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PrService } from 'src/app/pr.service';
 import { PR, PRCollection } from 'src/app/pr';
 
@@ -19,6 +19,8 @@ export class BestComponent implements OnInit {
   private _lift: string;
 
   bestPRs: PR[];
+
+  @Output() track = new EventEmitter();
 
   constructor(
     private prService: PrService,
@@ -45,6 +47,10 @@ export class BestComponent implements OnInit {
     })
     .catch(err => console.error(err));
 
+  }
+
+  onOpenTrackForm(){
+    this.track.emit();
   }
 
 }

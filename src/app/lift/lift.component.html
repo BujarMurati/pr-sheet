@@ -4,7 +4,7 @@
     [(selectedIndex)]="activeTab"
     style="max-width: 800px; margin: auto;" 
     mat-align-tabs="center">
-    <mat-tab label="Lifetime PRs"> <app-best [lift]="lift"></app-best> </mat-tab>
+    <mat-tab label="Lifetime PRs"> <app-best [lift]="lift" (track)="setActiveTab(tabs.TRACK)"></app-best> </mat-tab>
     <mat-tab label="Track a new PR"> <app-track [lift]="lift" (submitted)="setActiveTab(tabs.BEST)"></app-track> </mat-tab>
-    <mat-tab label="History"> <app-history [lift]="lift"></app-history> </mat-tab>
+    <mat-tab label="History"> <app-history [lift]="lift" (track)="setActiveTab(tabs.TRACK)"></app-history> </mat-tab>
 </mat-tab-group>
