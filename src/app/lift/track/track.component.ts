@@ -22,6 +22,7 @@ export class TrackComponent implements OnInit {
 
   date: Date;
   today: Date;
+  minReps = 1;
 
   constructor(
     private prService: PrService,
