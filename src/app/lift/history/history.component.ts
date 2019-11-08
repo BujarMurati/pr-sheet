@@ -13,7 +13,7 @@ export class HistoryComponent implements OnInit {
     this._lift = lift;
     this.getAllPRs();
   }
-  get name(): string {return this._lift}
+  get lift(): string {return this._lift}
 
   private _lift: string;
 

@@ -14,7 +14,7 @@ export class TrackComponent implements OnInit {
   set lift(lift: string){
     this._lift = lift;
   }
-  get name(): string {return this._lift}
+  get lift(): string {return this._lift}
 
   private _lift: string;
 
