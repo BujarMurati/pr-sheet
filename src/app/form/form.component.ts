@@ -18,6 +18,7 @@ export class FormComponent implements OnInit {
   date: Date;
   today: Date;
   minReps = 1;
+  e1RM = 0;
 
   constructor(
     private prService: PrService,
@@ -30,12 +31,16 @@ export class FormComponent implements OnInit {
 
   onSubmit(form: NgForm){
     let pr = form.value;
-    pr.e1RM = PR.calculateE1RM(pr.reps, pr.weight);
+    pr.e1RM = this.e1RM;
     if (this.lift){
       pr.lift = this.lift;
     }
     this.prService.create(pr);
     this.submitted.emit();
+  }
+
+  onCalculateE1RM(reps: number, weight: number){
+    this.e1RM = weight ? PR.calculateE1RM(reps, weight) : 0;
   }
 
 }

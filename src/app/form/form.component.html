@@ -20,21 +20,26 @@
                     placeholder="Weight"
                     type="number"
                     ngModel
+                    #weight
                     name="weight"
                     min="2.5"
                     step="2.5"
+                    (input)="onCalculateE1RM(reps.value, weight?.value)"
                     required>
             </mat-form-field>
-        <label>Number of reps: {{reps?.value}}</label>
+        <label>Number of reps: 
+            <span *ngIf="reps?.value">{{reps?.value}}</span>
+            <span *ngIf="f.valid" style="float: right">Estimated 1RM: {{e1RM | number:'1.2-2'}}</span> 
+        </label> 
         <mat-slider 
             thumbLabel
             ngModel
             #reps
             name="reps" 
-            [value]="minReps"
             tickInterval="1"
             min="1"
             max="20"
+            (input)="onCalculateE1RM(reps.value, weight?.value)"
             required>
             Number of reps
         </mat-slider>
@@ -52,7 +57,6 @@
                 #picker>
             </mat-datepicker>
         </mat-form-field>
-        
         <button 
             mat-raised-button 
             [disabled]="f.invalid"
