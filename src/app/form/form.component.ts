@@ -2,6 +2,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { PrService } from '../pr.service';
 import { NgForm } from '@angular/forms';
 import { PR } from '../pr';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-form',
@@ -22,6 +23,7 @@ export class FormComponent implements OnInit {
 
   constructor(
     private prService: PrService,
+    private messageService: MessageService,
   ) { }
 
   ngOnInit() {
@@ -36,6 +38,7 @@ export class FormComponent implements OnInit {
       pr.lift = this.lift;
     }
     this.prService.create(pr);
+    this.messageService.show('PR created', '');
     this.submitted.emit();
   }
 
