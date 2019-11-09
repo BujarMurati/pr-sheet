@@ -11,6 +11,7 @@ export class HistoryComponent implements OnInit {
   @Input() 
   set lift(lift: string){
     this._lift = lift;
+    this.title = `All ${this._lift} PRs`
     this.getAllPRs();
   }
   get lift(): string {return this._lift}
@@ -18,6 +19,7 @@ export class HistoryComponent implements OnInit {
   private _lift: string;
 
   allPRs: PR[];
+  title: string;
 
   @Output() track = new EventEmitter();
 

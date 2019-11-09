@@ -1,41 +1,13 @@
-<div 
-    style="max-width: 800px; margin: auto;"
-    fxLayout="column" 
-    fxLayoutAlign="center center" 
-    fxLayoutGap="10px">
-    <h2>All {{lift}} PRs</h2>
-    <table 
-        mat-table 
-        fxFlexFill
-        style="overflow: hidden"
-        [dataSource]="allPRs" >
-            
-        <ng-container matColumnDef="reps">
-            <th mat-header-cell *matHeaderCellDef> Reps </th>
-            <td mat-cell *matCellDef="let pr"> {{pr.reps}} </td>
-        </ng-container>
-                
-        <ng-container matColumnDef="weight">
-            <th mat-header-cell *matHeaderCellDef> Weight </th>
-            <td mat-cell *matCellDef="let pr"> {{pr.weight}} </td>
-        </ng-container>
-                
-        <ng-container matColumnDef="e1RM">
-            <th mat-header-cell *matHeaderCellDef> Estimated 1RM </th>
-            <td mat-cell *matCellDef="let pr"> {{pr.e1RM | number}} </td>
-        </ng-container>
-                
-        <ng-container matColumnDef="date">
-            <th mat-header-cell *matHeaderCellDef> Date </th>
-            <td mat-cell *matCellDef="let pr"> {{pr.date | date:'d.M.yy'}} </td>
-        </ng-container>
-                
-        <tr mat-header-row *matHeaderRowDef="['reps', 'weight', 'e1RM', 'date']"></tr>
-        <tr mat-row *matRowDef="let row; columns: ['reps', 'weight', 'e1RM', 'date'];"></tr>
-    </table>
+<div style="max-width: 800px; margin: auto;">
+    <app-table 
+        [title]="title"
+        [prs]="allPRs"
+        [columns]="['reps', 'weight', 'e1RM', 'date']">
+    </app-table>
 
     <button
         mat-raised-button
+        class="centered-button"
         color="primary"
         (click)="onOpenTrackForm()">
         Enter a new PR

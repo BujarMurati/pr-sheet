@@ -14,7 +14,8 @@ import { LiftComponent } from './lift/lift.component';
 import { BestComponent } from './lift/best/best.component';
 import { HistoryComponent } from './lift/history/history.component';
 import { TrackComponent } from './lift/track/track.component';
-import { NewLiftComponent } from './new-lift/new-lift.component'
+import { NewLiftComponent } from './new-lift/new-lift.component';
+import { TableComponent } from './table/table.component'
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { NewLiftComponent } from './new-lift/new-lift.component'
     BestComponent,
     HistoryComponent,
     TrackComponent,
-    NewLiftComponent
+    NewLiftComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,

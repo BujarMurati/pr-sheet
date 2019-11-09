@@ -7,13 +7,7 @@ a:hover {
     color: #c2185b;
 }
 
-.dashboard {
+.table {
     max-width: 800px; 
     margin: auto;
-}
-
-.centered-button{
-    margin:0 auto; 
-    display:block; 
-    margin-top:20px;
 }

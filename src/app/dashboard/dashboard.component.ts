@@ -10,6 +10,7 @@ import { PR, PRCollection } from '../pr';
 export class DashboardComponent implements OnInit {
 
   bestPRs: PR[];
+  title = 'Your best PRs by lift'
 
   constructor(
     private prService: PrService,

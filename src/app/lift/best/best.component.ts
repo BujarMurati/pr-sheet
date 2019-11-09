@@ -12,6 +12,7 @@ export class BestComponent implements OnInit {
   @Input() 
   set lift(lift: string){
     this._lift = lift;
+    this.title = `Your lifetime ${this._lift} PRs`
     this.getBestPRs();
   }
   get lift(): string {return this._lift}
@@ -19,6 +20,7 @@ export class BestComponent implements OnInit {
   private _lift: string;
 
   bestPRs: PR[];
+  title: string;
 
   @Output() track = new EventEmitter();
 
