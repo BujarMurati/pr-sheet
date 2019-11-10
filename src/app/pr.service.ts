@@ -32,20 +32,10 @@ export class PrService {
     return this.db.prs.where('lift').notEqual('').uniqueKeys();
   }
 
-  //test if lifts are new and if so publish them
-  newLift(lift: string): void{
-    this.uniqueLifts().then(lifts=>{
-      if(!lifts.includes(lift)){
-        this.pubsub.publishLift(lift);
-      }
-    })
-  }
-
   create(pr: PR): void {
     this.db.prs.add(pr);
     this.pubsub.publishPR(pr);
     this.messageService.show('PR saved!', 'OK');
-    this.newLift(pr.lift);  
   }
 
 
