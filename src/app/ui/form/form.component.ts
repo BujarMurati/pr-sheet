@@ -23,7 +23,6 @@ export class FormComponent implements OnInit {
 
   constructor(
     private prService: PrService,
-    private messageService: MessageService,
   ) { }
 
   ngOnInit() {
@@ -38,7 +37,6 @@ export class FormComponent implements OnInit {
       pr.lift = this.lift;
     }
     this.prService.create(pr);
-    this.messageService.show('PR created', '');
     this.submitted.emit();
   }
 

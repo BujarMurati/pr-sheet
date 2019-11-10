@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { PR } from './pr';
 import { DB } from './db';
+import { PubsubService } from './pubsub.service';
+import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,10 @@ export class PrService {
 
   db: DB;
 
-  constructor() { 
+  constructor(
+    private pubsub: PubsubService,
+    private messageService: MessageService,
+  ) { 
     this.init();
   }
 
@@ -27,9 +32,22 @@ export class PrService {
     return this.db.prs.where('lift').notEqual('').uniqueKeys();
   }
 
+  //test if lifts are new and if so publish them
+  newLift(lift: string): void{
+    this.uniqueLifts().then(lifts=>{
+      if(!lifts.includes(lift)){
+        this.pubsub.publishLift(lift);
+      }
+    })
+  }
+
   create(pr: PR): void {
     this.db.prs.add(pr);
+    this.pubsub.publishPR(pr);
+    this.messageService.show('PR saved!', 'OK');
+    this.newLift(pr.lift);  
   }
+
 
   read(filterBy?: Partial<PR>): Promise<PR[]>{
     if (filterBy){

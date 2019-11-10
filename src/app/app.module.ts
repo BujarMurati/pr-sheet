@@ -17,6 +17,7 @@ import { TrackComponent } from './lift/track/track.component';
 import { NewLiftComponent } from './new-lift/new-lift.component';
 import { TableComponent } from './ui/table/table.component';
 import { FormComponent } from './ui/form/form.component'
+import { PubsubService } from './pubsub.service';
 
 
 @NgModule({
@@ -41,7 +42,7 @@ import { FormComponent } from './ui/form/form.component'
     FormsModule,
     FlexLayoutModule,
   ],
-  providers: [],
+  providers: [PubsubService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
