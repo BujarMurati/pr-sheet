@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { PrService } from '../pr.service';
+import { PrService } from '../../pr.service';
 import { NgForm } from '@angular/forms';
-import { PR } from '../pr';
-import { MessageService } from '../message.service';
+import { PR } from '../../pr';
+import { MessageService } from '../../message.service';
 
 @Component({
   selector: 'app-form',

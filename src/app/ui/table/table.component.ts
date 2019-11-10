@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PR } from '../pr';
+import { PR } from '../../pr';
 
 @Component({
   selector: 'app-table',

@@ -15,8 +15,8 @@ import { BestComponent } from './lift/best/best.component';
 import { HistoryComponent } from './lift/history/history.component';
 import { TrackComponent } from './lift/track/track.component';
 import { NewLiftComponent } from './new-lift/new-lift.component';
-import { TableComponent } from './table/table.component';
-import { FormComponent } from './form/form.component'
+import { TableComponent } from './ui/table/table.component';
+import { FormComponent } from './ui/form/form.component'
 
 
 @NgModule({
