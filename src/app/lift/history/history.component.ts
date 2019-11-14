@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PR, PRCollection } from 'src/app/pr';
 import { PrService } from 'src/app/pr.service';
+import { PubsubService } from 'src/app/pubsub.service';
 
 @Component({
   selector: 'app-history',
@@ -25,10 +26,14 @@ export class HistoryComponent implements OnInit {
 
   constructor(
     private prService: PrService,
+    private pubsub: PubsubService,
   ) { }
 
   ngOnInit() {
     this.getAllPRs();
+    this.pubsub.newPR.subscribe(pr => {
+      this.getAllPRs();
+    });
   }
 
   getAllPRs(): void{

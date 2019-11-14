@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PrService } from 'src/app/pr.service';
 import { PR, PRCollection } from 'src/app/pr';
+import { PubsubService } from 'src/app/pubsub.service';
 
 @Component({
   selector: 'app-best',
@@ -26,10 +27,14 @@ export class BestComponent implements OnInit {
 
   constructor(
     private prService: PrService,
+    private pubsub: PubsubService,
   ) { }
 
   ngOnInit() { 
     this.getBestPRs();
+    this.pubsub.newPR.subscribe(pr => {
+      this.getBestPRs();
+    })
   }
 
   getBestPRs(): void{
